@@ -1,10 +1,19 @@
+body{
+  background-color: rgb(255, 255, 255);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
 #title {
   text-align: center;
 }
 
 #color-palette {
+  background: aqua;
   justify-content: center;
-  display: flex;
+  display: inline-flex;
 }
 
 .color {
@@ -16,18 +25,29 @@
   margin: 2px;
 }
 
-#purple {
-  background-color: purple;
+.seletores {
+  margin: 20px;
 }
 
-#red {
-  background-color: red;
+#pixel-board {
+  --size: 5;
+  display: grid;
+  grid-template-columns: repeat(var(--size), 1fr);
+  grid-template-rows: repeat(var(--size), 1fr);
+  gap: 0;
+  border: 1px black solid;
 }
 
-#black {
-  background-color: black;
+.pixel {
+  background-color: rgb(255, 255, 255);
+  border-radius: 1px black solid;
+  width: 40px;
+  height: 40px;
+  border: black solid 1px;
 }
 
-#blue {
-  background-color: blue;
+.color2 {
+  height: 50px;
+  width: 100px;
+  margin: 1px;
 }
