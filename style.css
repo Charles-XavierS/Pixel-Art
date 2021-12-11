@@ -1,28 +1,36 @@
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Exo+2:ital,wght@0,600;1,800&family=VT323&display=swap');
+
 body{
   background-color: rgb(255, 255, 255);
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-direction: column;
+  text-align: center;
+  font-family: 'Bebas Neue', cursive;
+  font-family: 'Exo 2', sans-serif;
+  font-family: 'VT323', monospace;
 }
 
 #title {
-  text-align: center;
+  font-size: 65px;
+  font-weight: 100;
 }
 
 #color-palette {
-  background: aqua;
-  justify-content: center;
+  
   display: inline-flex;
 }
 
 .color {
-  justify-content: center;
-  display: inline-block;
+  display: inline-flex;
   border: black solid 1px;
   width: 50px;
   height: 50px;
-  margin: 2px;
+  margin: 0px;
+}
+
+#color2 {
+  display: inline-flex;
+  height: 52px;
+  width: 52px;
+  margin-left: 10px;
 }
 
 .seletores {
@@ -30,24 +38,23 @@ body{
 }
 
 #pixel-board {
-  --size: 5;
-  display: grid;
-  grid-template-columns: repeat(var(--size), 1fr);
-  grid-template-rows: repeat(var(--size), 1fr);
-  gap: 0;
-  border: 1px black solid;
+  margin: 10px 0;
+  display: flexbox;
+}
+
+.horizontal {
+  background-color: aquamarine;
+  display: flex;
+  justify-content: center;
 }
 
 .pixel {
-  background-color: rgb(255, 255, 255);
-  border-radius: 1px black solid;
+  background-color: white;
   width: 40px;
   height: 40px;
   border: black solid 1px;
+  display: inline-block;
+  margin: 0;
+
 }
 
-.color2 {
-  height: 50px;
-  width: 100px;
-  margin: 1px;
-}

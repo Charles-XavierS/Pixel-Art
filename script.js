@@ -1,29 +1,38 @@
-const paletaDeCores = document.querySelectorAll('.color');
-const board = document.querySelector('#pixel-board');
-const sizeBoard = document.querySelector('#board-size');
-const tamanho = sizeBoard.value;
+const primeiraCor = document.getElementById('cor1');
+const segundaCor = document.getElementById('cor2');
+const terceiraCor = document.getElementById('cor3');
+const quartaCor = document.getElementById('cor4');
+const seletorRgb = document.getElementById('color2');
+const inputPixelBoard = document.getElementById('board-size');
+const quadro = inputPixelBoard.value;
 
-function paletteColors() {
-  paletaDeCores[0].style.backgroundColor = 'black';
-  paletaDeCores[1].style.backgroundColor = 'green';
-  paletaDeCores[2].style.backgroundColor = 'red';
-  paletaDeCores[3].style.backgroundColor = 'purple';
-}
-paletteColors();
+for (let i = 0; i < quadro; i += 1) {
+  const horizontal = document.createElement('div');
+  horizontal.classList.add('horizontal');
+  document.getElementById('pixel-board').appendChild(horizontal);
 
-function pixelBoard(size) {
-  board.style.setProperty('--size', size);
-  for (let i = 0; i < size * size; i += 1) {
-    const div = document.createElement('div');
-    div.classList.add('pixel');
-    board.appendChild(div);
+  for (let index = 0; index < quadro; index += 1) {
+    const vertical = document.createElement('div');
+    vertical.classList.add('pixel');
+    horizontal.appendChild(vertical);
   }
 }
-pixelBoard(tamanho);
+
+function colors() {
+  primeiraCor.style.backgroundColor = 'Black';
+  segundaCor.style.backgroundColor = 'orange';
+  terceiraCor.style.backgroundColor = 'red';
+  quartaCor.style.backgroundColor = 'green';
+}
+colors();
 
 function pickColor(event) {
   const dfault = document.querySelector('.selected');
   dfault.classList.remove('selected');
   event.target.classList.add('selected');
 }
-window.addEventListener('click', pickColor);
+primeiraCor.addEventListener('click', pickColor);
+segundaCor.addEventListener('click', pickColor);
+terceiraCor.addEventListener('click', pickColor);
+quartaCor.addEventListener('click', pickColor);
+// seletorRgb.addEventListener('click', pickColor);
