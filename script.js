@@ -35,4 +35,4 @@ primeiraCor.addEventListener('click', pickColor);
 segundaCor.addEventListener('click', pickColor);
 terceiraCor.addEventListener('click', pickColor);
 quartaCor.addEventListener('click', pickColor);
-// seletorRgb.addEventListener('click', pickColor);
+seletorRgb.addEventListener('click', pickColor);

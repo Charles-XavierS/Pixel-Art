@@ -1,11 +1,9 @@
 @import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Exo+2:ital,wght@0,600;1,800&family=VT323&display=swap');
 
-body{
-  background-color: rgb(255, 255, 255);
+body {
+  background-color: white;
   text-align: center;
-  font-family: 'Bebas Neue', cursive;
-  font-family: 'Exo 2', sans-serif;
-  font-family: 'VT323', monospace;
+  font-family: VT323, monospace;
 }
 
 #title {
@@ -14,7 +12,6 @@ body{
 }
 
 #color-palette {
-  
   display: inline-flex;
 }
 
@@ -55,6 +52,4 @@ body{
   border: black solid 1px;
   display: inline-block;
   margin: 0;
-
 }
-
