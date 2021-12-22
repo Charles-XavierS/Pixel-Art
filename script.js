@@ -1,22 +1,37 @@
-// Quadro de cores
+// Quadro de cores + cores aleatórias
+
 const colorPallete = document.querySelector('#color-palette');
-const primeiraCor = document.getElementById('cor1');
-const segundaCor = document.getElementById('cor2');
-const terceiraCor = document.getElementById('cor3');
-const quartaCor = document.getElementById('cor4');
-const seletorRgb = document.getElementById('color2');
+const firstColor = document.getElementById('cor1');
+const secondColor = document.getElementById('cor2');
+const thirdColor = document.getElementById('cor3');
+const fourthColor = document.getElementById('cor4');
+
+// Source: https://stackoverflow.com/questions/1484506/random-color-generator
+const letters = '0123456789ABCDEF';
+let color2 = '#';
+let color3 = '#';
+let color4 = '#';
+
+function randomColor() {
+  for (let index = 0; index < 6; index += 1) {
+    color2 += letters[Math.floor(Math.random() * 16)];
+    color3 += letters[Math.floor(Math.random() * 16)];
+    color4 += letters[Math.floor(Math.random() * 16)];
+  }
+}
+randomColor();
 
 function colors() {
-  primeiraCor.style.backgroundColor = 'Black';
-  segundaCor.style.backgroundColor = 'orange';
-  terceiraCor.style.backgroundColor = 'red';
-  quartaCor.style.backgroundColor = 'green';
+  firstColor.style.backgroundColor = 'Black';
+  secondColor.style.backgroundColor = color2;
+  thirdColor.style.backgroundColor = color3;
+  fourthColor.style.backgroundColor = color4;
 }
 colors();
 
 // Criar o quadro de pixels
-const boardSize = document.querySelector('#board-size');
-const quadro = boardSize.value;
+
+let quadro = 5;
 
 function generateBoard() {
   for (let i = 0; i < quadro; i += 1) {
@@ -41,26 +56,51 @@ function pickColor(event) {
   event.target.classList.add('selected');
 }
 colorPallete.addEventListener('click', pickColor);
-seletorRgb.addEventListener('click', pickColor);
 
 // Pintar o quadro
+
 const pixelEmpty = document.getElementsByClassName('pixel');
 
 function paintedPixel(event) {
   event.target.style.backgroundColor = document.querySelector('.selected').style.backgroundColor;
 }
 
-for (pixels of pixelEmpty) {
-  pixels.addEventListener('click', paintedPixel);
+function clickPaint() {
+  for (pixels of pixelEmpty) {
+    pixels.addEventListener('click', paintedPixel);
+  }
 }
+clickPaint();
 
 // Botão de limpar o quadro
 
 const resetButton = document.querySelector('#clear-board');
 const pixelClear = document.querySelectorAll('.pixel');
+
 function reset() {
   for (let index = 0; index < pixelClear.length; index += 1) {
-    pixelClear[index].style.backgroundColor = 'white';
+    pixelClear[index].style.backgroundColor = '';
   }
 }
 resetButton.addEventListener('click', reset);
+
+// Tamanho do quadro personalizado
+
+const vqvButton = document.querySelector('#generate-board');
+
+function customBoard() {
+  // if (boardSize.value == false || boardSize.value == null) {
+  //   alert('Board inválido!');
+  // } else if (boardSize.value < 5) {
+  //   boardSize.value.value = 5;
+  // } else if (boardSize.value > 50) {
+  //   boardSize.value.value = 50;
+  // }
+  const boardSize = document.getElementById('board-size').value;
+  const boardSection = document.getElementById('pixel-board');
+  boardSection.innerHTML = '';
+  quadro = boardSize;
+  generateBoard();
+  clickPaint();
+}
+vqvButton.addEventListener('click', customBoard);
