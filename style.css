@@ -1,13 +1,11 @@
-@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Exo+2:ital,wght@0,600;1,800&family=VT323&display=swap');
-
 body {
   background-color: white;
   text-align: center;
-  font-family: VT323, monospace;
+  font-family: 'Press Start 2P', cursive;
 }
 
 #title {
-  font-size: 65px;
+  font-size: 35px;
   font-weight: 100;
 }
 
@@ -20,7 +18,7 @@ body {
   border: black solid 1px;
   width: 50px;
   height: 50px;
-  margin: 0px;
+  margin: 0;
 }
 
 #color2 {
@@ -34,15 +32,27 @@ body {
   margin: 20px;
 }
 
+#clear-board {
+  width: 100px;
+}
+
+#board-size {
+  width: 50px;
+  justify-content: center;
+  padding: 0;
+}
+
+#generate-board {
+  width: 100px;
+}
+
 #pixel-board {
-  margin: 10px 0;
-  display: flexbox;
+  display: inline-block;
 }
 
 .horizontal {
-  background-color: aquamarine;
   display: flex;
-  justify-content: center;
+  justify-self: auto;
 }
 
 .pixel {
@@ -50,6 +60,6 @@ body {
   width: 40px;
   height: 40px;
   border: black solid 1px;
-  display: inline-block;
+  display: flex;
   margin: 0;
 }
