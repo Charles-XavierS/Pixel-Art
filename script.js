@@ -79,7 +79,7 @@ const pixelClear = document.querySelectorAll('.pixel');
 
 function reset() {
   for (let index = 0; index < pixelClear.length; index += 1) {
-    pixelClear[index].style.backgroundColor = '';
+    pixelClear[index].style.backgroundColor = 'white';
   }
 }
 resetButton.addEventListener('click', reset);
@@ -88,19 +88,27 @@ resetButton.addEventListener('click', reset);
 
 const vqvButton = document.querySelector('#generate-board');
 
+function invalidBoard() {
+  const boardSize = document.getElementById('board-size');
+  if (!boardSize.value === true) {
+    window.alert('Board inválido!');
+  } else if (boardSize.value < 5) {
+    boardSize.value = 5;
+    quadro = boardSize.value;
+  } else if (boardSize.value > 50) {
+    boardSize.value = 50;
+    quadro = boardSize.value;
+  } else {
+    quadro = boardSize.value;
+  }
+}
+
 function customBoard() {
-  // if (boardSize.value == false || boardSize.value == null) {
-  //   alert('Board inválido!');
-  // } else if (boardSize.value < 5) {
-  //   boardSize.value.value = 5;
-  // } else if (boardSize.value > 50) {
-  //   boardSize.value.value = 50;
-  // }
-  const boardSize = document.getElementById('board-size').value;
   const boardSection = document.getElementById('pixel-board');
   boardSection.innerHTML = '';
-  quadro = boardSize;
+  invalidBoard();
   generateBoard();
   clickPaint();
 }
+
 vqvButton.addEventListener('click', customBoard);
