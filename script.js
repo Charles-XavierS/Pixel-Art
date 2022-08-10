@@ -82,6 +82,7 @@ function reset() {
     pixelClear[index].style.backgroundColor = 'white';
   }
 }
+reset();
 resetButton.addEventListener('click', reset);
 
 // Tamanho do quadro personalizado
@@ -91,8 +92,10 @@ const vqvButton = document.querySelector('#generate-board');
 function invalidBoard() {
   const boardSize = document.getElementById('board-size');
   if (!boardSize.value === true) {
-    window.alert('Board inválido!');
-  } else if (boardSize.value < 5) {
+    alert('Board inválido!');
+    // return false;
+  }
+  if (boardSize.value < 5) {
     boardSize.value = 5;
     quadro = boardSize.value;
   } else if (boardSize.value > 50) {
